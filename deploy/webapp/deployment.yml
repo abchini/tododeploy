@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todolistwebapp-deployment
+  namespace: sandbox
+  labels:
+    app: todolistweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todolistweb
+  template:
+    metadata:
+      labels:
+        app: todolistweb
+    spec:
+      containers:
+      - name: todolistweb
+        image: todolistweb:v1
+        imagePullPolicy: Never
+        env:
+          - name: ASPNETCORE_ENVIRONMENT
+            value: "Production"
+          - name: ASPNETCORE_URLS
+            value: "http://+:47818"
+        ports:
+        - containerPort: 47818
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: app-config

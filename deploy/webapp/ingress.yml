@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: sandbox
+  name: todolistweb-ingress
+  annotations:
+   ingress.kubernetes.io/ssl-redirect: "false"
+   kubernetes.io/ingress.class: nginx
+   nginx.ingress.kubernetes.io/ssl-redirect: "false"
+   
+spec:
+  rules:
+  - host: todoapp.local
+    http:
+      paths:
+      - path: /todoapp
+        backend:
+          serviceName: todolistweb
+          servicePort: web

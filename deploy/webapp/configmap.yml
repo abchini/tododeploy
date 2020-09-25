@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: sandbox
+data:
+  appsettings.json: |-
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Error",
+          "System": "Error",
+          "Microsoft": "Error"
+        }
+      },
+      "LocalFileStorageBasePath": "./.data/todolist/",
+      "ConnectionStrings": {
+      "PostgreSql": "Host=postgres;Database=todolist;Username=abchini;Password=Oodrive01;port=5432"
+       }
+    }
