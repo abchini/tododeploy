@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: todolistweb
-        image: todolistweb:v2
+        image: registry.oodev.io/tests/todolistweb:v3
         imagePullPolicy: Never
         env:
           - name: ASPNETCORE_ENVIRONMENT
