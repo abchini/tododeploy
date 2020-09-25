@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: todolistweb
-        image: docker.io/abchini/todolistweb:v3
-        imagePullPolicy: Never
+        image: registry.oodev.io/tests/todolistweb:v5
+        imagePullPolicy: Always
         env:
           - name: ASPNETCORE_ENVIRONMENT
             value: "Production"
